@@ -1,0 +1,26 @@
+# Universal
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+.vscode/
+.idea/
+
+# Environment specific
+.env*
+.config/
+
+# macOS
+.Spotlight-V100
+.Trashes
+*.lproj/
+
+# Windows
+[C-c]ache/
+[C-c]onfig/
+[D-d]esktop.ini
+[D-d]esktop.ini.lo_
+[D-d]esktop.ini.trl
+[T-t]emporary[I-i]tems/
+[T-t]rash-[F-f]older/
+ehthumbs.db

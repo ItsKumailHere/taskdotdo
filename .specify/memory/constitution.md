@@ -1,55 +1,59 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: N/A → 1.0.0
+- Modified principles: N/A (new constitution)
+- Added sections: All sections
+- Removed sections: None
+- Templates requiring updates: ⚠ pending - .specify/templates/plan-template.md, .specify/templates/spec-template.md, .specify/templates/tasks-template.md, .claude/commands/*.md
+- Follow-up TODOs: None
+-->
+
+# Hackathon II: The Evolution of Todo Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### Spec-Driven Development
+All development follows the Spec-Kit Plus methodology: Constitution → Spec → Plan → Tasks → Implementation.
+Specifications must be complete and testable before any implementation begins. AI agents (Claude Code) implement
+from specs, not ad-hoc coding.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### AI-Agent First Development
+Engineers act as system architects, writing high-level specifications and letting AI agents generate
+implementation code. Manual coding is prohibited - all code must be AI-generated from specs using Claude Code
+or equivalent AI agents.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### Test-First (NON-NEGOTIABLE)
+TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle
+strictly enforced. All features must have comprehensive test coverage before implementation.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### Progressive Evolution Architecture
+Features must be built progressively across five phases: Console app → Full-stack web → AI chatbot →
+Cloud-native deployment → Advanced cloud features. Each phase builds on the previous with increasing
+complexity and capabilities.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### Monorepo Structure & Reusable Intelligence
+All code organized in monorepo with /specs/ directory, layered CLAUDE.md files, and structured feature
+specifications. Emphasis on creating reusable agent skills, subagents, and cloud-native blueprints for
+future use.
 
-### [PRINCIPLE_6_NAME]
+### Cloud-Native & Stateless Design
+Backend systems must be stateless, scalable, and cloud-native. Use containerization (Docker),
+orchestration (Kubernetes), and modern cloud practices (Dapr, Kafka, event-driven architecture).
 
+## Technical Requirements
 
-[PRINCIPLE__DESCRIPTION]
+Technology stack: Python 3.11, JavaScript/TypeScript (Next.js) + Next.js (App Router), FastAPI, SQLModel,
+Neon Serverless Postgres, Better Auth (JWT-based). Advanced phases include OpenAI ChatKit UI, OpenAI Agents
+SDK, Docker, Minikube, Helm charts, Kafka/Redpanda, Dapr sidecars.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Development Workflow
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+Weekly deliverables on Sundays, public GitHub repo with specs history, deployed app links, demo videos ≤ 90
+seconds. Strict adherence to Spec-Kit Plus process with AI agents implementing from specifications.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+All PRs/reviews must verify compliance with spec-driven development. Constitution supersedes all other
+practices. Amendments require documentation and approval. Use CLAUDE.md files for runtime development guidance.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-12-01 | **Last Amended**: 2026-01-07

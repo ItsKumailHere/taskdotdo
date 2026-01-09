@@ -1,13 +1,16 @@
 [project]
-name = "todo-crud-cli"
+name = "todo-cli"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "prompt-toolkit>=3.0.52",
+    "pyaudio",
     "pydantic>=2.12.5",
+    "pyyaml",
     "rich>=14.2.0",
+    "speechrecognition",
     "typer>=0.21.0",
 ]
 
