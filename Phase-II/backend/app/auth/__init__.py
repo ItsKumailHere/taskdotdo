@@ -1,0 +1,6 @@
+"""
+Authentication module for the TaskDo backend
+"""
+from .jwt import get_current_user, security
+
+__all__ = ["get_current_user", "security"]
