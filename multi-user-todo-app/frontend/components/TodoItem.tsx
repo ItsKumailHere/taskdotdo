@@ -66,20 +66,27 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onTodoUpdate, onTodoDelete })
   };
 
   return (
-    <div className={`p-4 mb-2 rounded-lg shadow flex items-start ${completed ? 'bg-green-50 dark:bg-green-900/30' : 'bg-white dark:bg-gray-800'}`}>
+    <div className={`todo-item ${status === 'completed' ? 'completed' : ''}`}>
       <input
         type="checkbox"
-        checked={completed}
+        checked={status === 'completed'}
         onChange={handleToggleComplete}
         className="mt-1 mr-3 h-5 w-5 text-blue-600 rounded focus:ring-blue-500"
       />
-      
+
       {isEditing ? (
         <div className="flex-1">
           <input
             type="text"
-            value={editText}
-            onChange={(e) => setEditText(e.target.value)}
+            value={editTitle}
+            onChange={(e) => setEditTitle(e.target.value)}
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white mb-2"
+          />
+          <textarea
+            value={editDescription}
+            onChange={(e) => setEditDescription(e.target.value)}
+            placeholder="Description (optional)"
+            rows={2}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
           />
           <div className="mt-2 flex space-x-2">
@@ -93,7 +100,8 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onTodoUpdate, onTodoDelete })
             <button
               onClick={() => {
                 setIsEditing(false);
-                setEditText(todo.description);
+                setEditTitle(todo.title);
+                setEditDescription(todo.description || '');
               }}
               className="px-3 py-1 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
             >
@@ -103,9 +111,14 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onTodoUpdate, onTodoDelete })
         </div>
       ) : (
         <div className="flex-1">
-          <div className={`${completed ? 'line-through text-gray-500 dark:text-gray-400' : ''}`}>
-            {todo.description}
+          <div className={status === 'completed' ? 'line-through text-gray-500 dark:text-gray-400' : ''}>
+            {todo.title}
           </div>
+          {todo.description && (
+            <div className="text-sm text-gray-600 dark:text-gray-300 mt-1">
+              {todo.description}
+            </div>
+          )}
           {todo.due_date && (
             <div className="text-sm text-gray-500 dark:text-gray-400 mt-1">
               Due: {new Date(todo.due_date).toLocaleDateString()}
@@ -113,7 +126,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onTodoUpdate, onTodoDelete })
           )}
         </div>
       )}
-      
+
       <div className="flex space-x-2 ml-4">
         {!isEditing && (
           <button

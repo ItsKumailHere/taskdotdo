@@ -14,7 +14,7 @@ export function ResponsiveNav() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <nav className="bg-white dark:bg-gray-800 shadow-md">
+    <nav className="navbar">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
@@ -22,22 +22,22 @@ export function ResponsiveNav() {
               TaskDo
             </Link>
           </div>
-          
+
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4">
-            <Link href="/dashboard">
+            <Link href="/dashboard" className="navbar-link">
               <Button variant={pathname === '/dashboard' ? 'default' : 'ghost'}>
                 Dashboard
               </Button>
             </Link>
-            <Link href="/tasks">
+            <Link href="/tasks" className="navbar-link">
               <Button variant={pathname === '/tasks' ? 'default' : 'ghost'}>
                 Tasks
               </Button>
             </Link>
             <ThemeToggle />
           </div>
-          
+
           {/* Mobile menu button */}
           <div className="flex items-center md:hidden">
             <ThemeToggle />
@@ -46,23 +46,23 @@ export function ResponsiveNav() {
             </Button>
           </div>
         </div>
-        
+
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <Link href="/dashboard">
-                <Button 
-                  variant={pathname === '/dashboard' ? 'default' : 'ghost'} 
+              <Link href="/dashboard" className="navbar-link">
+                <Button
+                  variant={pathname === '/dashboard' ? 'default' : 'ghost'}
                   className="w-full justify-start mb-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Dashboard
                 </Button>
               </Link>
-              <Link href="/tasks">
-                <Button 
-                  variant={pathname === '/tasks' ? 'default' : 'ghost'} 
+              <Link href="/tasks" className="navbar-link">
+                <Button
+                  variant={pathname === '/tasks' ? 'default' : 'ghost'}
                   className="w-full justify-start"
                   onClick={() => setIsMenuOpen(false)}
                 >

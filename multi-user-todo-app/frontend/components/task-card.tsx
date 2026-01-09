@@ -11,14 +11,14 @@ interface TaskCardProps {
 
 export function TaskCard({ task, onToggleComplete, onDelete }: TaskCardProps) {
   return (
-    <div className="border rounded-lg p-4 shadow-sm bg-white dark:bg-gray-800 flex items-start">
+    <div className={`task-card border rounded-lg p-4 bg-white dark:bg-gray-800 flex items-start ${task.status === 'completed' ? 'task-completed' : ''}`}>
       <Checkbox
         checked={task.status === 'completed'}
         onCheckedChange={(checked) => onToggleComplete(task.id, checked as boolean)}
         className="mt-1 mr-3"
       />
       <div className="flex-1">
-        <h3 className={`text-lg font-medium ${task.status === 'completed' ? 'line-through text-gray-500' : ''}`}>
+        <h3 className={`task-title text-lg font-medium ${task.status === 'completed' ? 'line-through text-gray-500' : ''}`}>
           {task.title}
         </h3>
         {task.description && (

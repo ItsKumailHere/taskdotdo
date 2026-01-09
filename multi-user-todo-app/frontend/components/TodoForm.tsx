@@ -47,7 +47,7 @@ const TodoForm: React.FC<TodoFormProps> = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+    <form onSubmit={handleSubmit} className="todo-form">
       <div className="mb-4">
         <label htmlFor="title" className="block text-gray-700 dark:text-gray-300 mb-2">
           Task Title
