@@ -48,20 +48,20 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onTodoUpdate, onTodoDelete })
   };
 
   const handleToggleComplete = async () => {
-    const newCompletedStatus = !completed;
-    setCompleted(newCompletedStatus);
-    
+    const newStatus = status === 'completed' ? 'pending' : 'completed';
+    setStatus(newStatus);
+
     try {
       const updatedTodo: TodoUpdate = {
-        completed: newCompletedStatus
+        status: newStatus
       };
-      
+
       const result = await apiClient.updateTodo(todo.id, updatedTodo);
       onTodoUpdate(result);
     } catch (error) {
-      console.error('Error updating todo completion:', error);
+      console.error('Error updating todo status:', error);
       // Revert the UI if the API call fails
-      setCompleted(!newCompletedStatus);
+      setStatus(status);
     }
   };
 
